@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        form {
+            text-align: center;
+            margin: 20px auto;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 60%;
+            border-radius: 8px;
+        }
+
+        table {
+            margin: 0 auto;
+        }
+
+        td {
+            padding: 10px;
+        }
+
+        input[type="text"], input[type="password"] {
+            padding: 10px;
+            font-size: 16px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            text-decoration: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<br><br><br><br><br><br><br><br><br><br><br><br>
+<form action="loginAuto.php" method="post">
+    <table align="center">
+        <tr>
+            <td colspan="3" align="center"><b>Admin Login</b></td>
+        </tr>
+        <tr>
+            <td>Username</td>
+            <td>:</td>
+            <td><input name="myusername" type="text"/></td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td>:</td>
+            <td><input name="mypassword" type="password"/></td>
+        </tr>
+        <tr>
+            <td colspan="3"><input name="Submit" type="submit" value="Login" /></td>
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>
