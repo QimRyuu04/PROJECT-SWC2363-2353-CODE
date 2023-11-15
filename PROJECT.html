@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GrabFood Malaysia</title>
+<style>
+/* Add to cart section */
+.card {
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: 35px;
+  text-align: center;
+  font-family: arial;
+  display: inline-block;
+}
+
+.price {
+  color: black;
+  font-size: 22px;
+}
+
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
+
+/* Add footer */
+.footer {
+   position: static;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   height: 50%;
+   background-color: grey;
+   color: white;
+   text-align: none;
+}
+
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+
+
+* {box-sizing: border-box}
+
+/* Set height of body and the document to 100% */
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial;
+}
+
+/* Style tab links */
+.tablink {
+  background-color: #555;
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 19.959%;
+}
+
+.tablink:hover {
+  background-color: #777;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+  color: white;
+  display: none;
+  padding: 100px 20px;
+  height: 418.5%;
+}
+
+#Home {background-color: green;}
+#Order {background-color: limegreen;}
+#About {background-color: green;}
+#Partnership {background-color: green;}
+#Login {background-color: skyblue;}
+</style>
+</head>
+<body>
+
+
+<!------------------------------------------------------- RESPONSIVE NABVAR BUTTON START HERE --------------------------------------------------->
+<button class="tablink" onclick="openPage('Home', this, 'green')" id="defaultOpen">Home</button>
+<button class="tablink" onclick="openPage('About', this, 'limegreen')">About Us</button>
+<button class="tablink" onclick="openPage('Order', this, 'green')">Order</button>
+<button class="tablink" onclick="openPage('Partnership', this, 'green')">Partnership</button>
+<button class="tablink" onclick="openPage('Login', this, 'skyblue')">Log in</button>
+<!-------------------------------------------------------- RESPONSIVE NAVBAR BUTTON END HERE ---------------------------------------------------->
+
+
+<!------------------------------------------------------------- HOME PAGE START HERE ------------------------------------------------------------>
+<div id="Home" class="tabcontent">
+  <p style="text-align: left;"><img src="image/GrabLogo.png" width="80" height="50"><h1>GrabFood Malaysia</h1>
+  <p align="center">
+<video width="1445" height="600" controls>
+  <source src="video/hero.mp4" type="video/mp4">
+</video>
+</p>
+  <p style="text-align: left;"><h2>Grab. Making every day better.</h2></p>
+  <p style="text-align: right;"><img src="image/gg.png" width="600" height="600"></p>
+  <p style="text-align: right;"><b>Grab is committed to moving Southeast Asia into recovery.</b></p>
+</div>
+<!------------------------------------------------------------- HOME PAGE END HERE -------------------------------------------------------------->
+
+
+<!---------------------------------------------------------- ABOUT US PAGE START HERE ----------------------------------------------------------->
+<div id="About" class="tabcontent">
+  <h1>CHARGING FORWARD TOGETHER.</h1>
+  <p style="text-align: center;"><img src="image/About.png.png" width="1440" height="500"></p>
+  <p><b>Guided by the Grab Way, our mission is to drive Southeast Asia forward by creating economic empowerment for everyone.</b></p>
+  <br><br><br>
+  <p style="text-align: right;"><img src="image/memgrab.png" width="600" height="500"></p>
+  <p style="text-align: right;"><b>Millions of people use Grab for many moments in their everyday lives.</b></p>
+  <br><br><br>
+  <p style="text-align: left;"><img src="image/orggrab.png" width="500" height="550"></p>
+  <p style="text-align: left;"><b>Strong corporate governance principles help us stay true to our mission.</b></p>
+  <br><br><br>
+  <p style="text-align: center;"><img src="image/orggrab1.png" width="1440" height="500"></p>
+  <p style="text-align: center;"><b>Grab Financial Group aims to improve economic mobility in Southeast Asia for everyone through financial inclusion.</b></p>
+  <br><br><br>
+  <h1>HISTORY</h1>
+  <p><b>Grab was founded in 2012 by Anthony Tan and Tan Hooi Ling, both graduates of Harvard Business School. The idea for Grab originated when Anthony Tan attended a conference in the United States and realized the potential for ride-hailing services in Southeast Asia.</b></p>
+  <br>
+  <p><b>Grab is a Southeast Asian superapp with a mission to drive Southeast Asia forward by offering everyday services that matter. It started out as a taxi-hailing app in 2012, and has since expanded its product offerings to include ride-hailing, food delivery, grocery and package delivery, and financial services. Grab is now Southeast Asia’s leading superapp, with over 190 million users across six countries.</b></p>
+  <br>
+  <p><b>Grab was founded by Anthony Tan and Tan Hooi Ling in 2012. Tan, who is the company’s CEO, is a graduate of Harvard Business School. Ling, who is Grab’s COO, is a graduate of the Wharton School of the University of Pennsylvania.<b></p>
+</div>
+<!------------------------------------------------------- ABOUT US PAGE END HERE ---------------------------------------------------------->
+
+
+<!------------------------------------------------------- ORDER PAGE START HERE ----------------------------------------------------------->
+<div id="Order" class="tabcontent">
+  <h1>ORDER YOUR PERSONAL RIDE WHAT YOU WANT HERE !!</h1>
+  <br>
+  <h2 style="text-align:center">Buy Anything You Want!!</h2>
+
+  <div class="card" name="product">
+    <form action="incart.php" method="POST"> <!-- Use a form to submit product information -->
+      <input type="hidden" name="product_name" value="Burger King">
+      <input type="hidden" name="product_price" value="RM12.99">
+      <input type="hidden" name="product_description" value="Delicious burger from Burger King itself !!">
+      <img src="image/burger.png" alt="Burger King" style="width:100%">
+      <p name="pname"><b>Burger King</b></p>
+      <p class="price" name="price1">RM12.99</p>
+      <p>Delicious burger for you !!</p>
+      <p><button name="c1" type="submit">Add to Cart</button></p>
+    </form>
+  </div>
+
+  <div class="card" name="product">
+    <form action="incart.php" method="POST"> <!-- Use a form to submit product information -->
+      <input type="hidden" name="product_name" value="Burger King Long Chicken">
+      <input type="hidden" name="product_price" value="RM12.99">
+      <input type="hidden" name="product_description" value="New Arrival, Try Now !!">
+      <img src="image/longchicken.png" alt="Burger King Long Chicken" style="width:100%">
+      <p name="pname"><b>Burger King Long Chicken</b></p>
+      <p class="price" name="price2">RM20.90</p>
+      <p>New Arrival, Try Now !!</p>
+      <p><button name="c1" type="submit">Add to Cart</button></p>
+    </form>
+  </div>
+
+    <div class="card" name="product">
+    <form action="incart.php" method="POST"> <!-- Use a form to submit product information -->
+      <input type="hidden" name="product_name" value="KFC Meals Box">
+      <input type="hidden" name="product_price" value="RM14.99">
+      <input type="hidden" name="product_description" value="Enjoy Our Meals Box !!">
+      <img src="image/kfcmeal.png" alt="KFC Meals Box" style="width:100%">
+      <p name="pname"><b>KFC Meals Box</b></p>
+      <p class="price" name="price3">RM14.99</p>
+      <p>Enjoy Our Meals Box !!</p>
+      <p><button name="c1" type="submit">Add to Cart</button></p>
+    </form>
+  </div>
+
+    <div class="card" name="product">
+    <form action="incart.php" method="POST"> <!-- Use a form to submit product information -->
+      <input type="hidden" name="product_name" value="Subway Long Bread">
+      <input type="hidden" name="product_price" value="RM15.40">
+      <input type="hidden" name="product_description" value="Subway food for you to enjoy !!">
+      <img src="image/subway.png" alt="Subway Long Bread" style="width:100%">
+      <p name="pname"><b>Subway Long Bread</b></p>
+      <p class="price" name="price1">RM15.49</p>
+      <p>Subaway food for you to enjoy !!</p>
+      <p><button name="c1" type="submit">Add to Cart</button></p>
+    </form>
+  </div>
+
+    <div class="card" name="product">
+    <form action="incart.php" method="POST"> <!-- Use a form to submit product information -->
+      <input type="hidden" name="product_name" value="Nasi Kandar">
+      <input type="hidden" name="product_price" value="RM11.40">
+      <input type="hidden" name="product_description" value="Asian food style for you to enjoy !!">
+      <img src="image/nasikandar.png" alt="Nasi Kandar" style="width:100%">
+      <p name="pname"><b>Nasi Kandar</b></p>
+      <p class="price" name="price1">RM11.49</p>
+      <p>Asian food style for you to enjoy !!</p>
+      <p><button name="c1" type="submit">Add to Cart</button></p>
+    </form>
+  </div>
+
+    <div class="card" name="product">
+    <form action="incart.php" method="POST"> <!-- Use a form to submit product information -->
+      <input type="hidden" name="product_name" value="Nasi Goreng Kampung">
+      <input type="hidden" name="product_price" value="RM16.99">
+      <input type="hidden" name="product_description" value="Delicious fried rice for you to enjoy!">
+      <img src="image/nasikampung2.png" alt="Nasi Goreng Kampung" style="width:100%">
+      <p name="pname"><b>Nasi Goreng Kampung</b></p>
+      <p class="price" name="price1">RM16.99</p>
+      <p>Delicious fried rice for you to enjoy!</p>
+      <p><button name="c1" type="submit">Add to Cart</button></p>
+    </form>
+  </div>
+
+    <div class="card" name="product">
+    <form action="incart.php" method="POST"> <!-- Use a form to submit product information -->
+      <input type="hidden" name="product_name" value="Spaghetti Carbonara">
+      <input type="hidden" name="product_price" value="RM24.99">
+      <input type="hidden" name="product_description" value="Francis style for you to enjoy!">
+      <img src="image/cabonara1.png" alt="Carbonara" style="width:100%">
+      <p name="pname"><b>Spaghetti Carbonara</b></p>
+      <p class="price" name="price1">RM24.59</p>
+      <p>Francis style for you to enjoy!</p>
+      <p><button name="c1" type="submit">Add to Cart</button></p>
+    </form>
+  </div>
+
+    <div class="card" name="product">
+    <form action="incart.php" method="POST"> <!-- Use a form to submit product information -->
+      <input type="hidden" name="product_name" value="Nasi Ayam">
+      <input type="hidden" name="product_price" value="RM7.00">
+      <input type="hidden" name="product_description" value="Nasi Ayam at your fav restaurant!">
+      <img src="image/nasiayam1.png" alt="Burger King" style="width:100%">
+      <p name="pname"><b>Nasi Ayam</b></p>
+      <p class="price" name="price1">RM7.00</p>
+      <p>Nasi Ayam at your fav restaurant!</p>
+      <p><button name="c1" type="submit">Add to Cart</button></p>
+    </form>
+  </div>
+
+      <div class="card" name="product">
+    <form action="incart.php" method="POST"> <!-- Use a form to submit product information -->
+      <input type="hidden" name="product_name" value="Roti Canai">
+      <input type="hidden" name="product_price" value="RM5.40">
+      <input type="hidden" name="product_description" value="Mamak style for you to enjoy!">
+      <img src="image/canai.png" alt="Roti Canai" style="width:100%">
+      <p name="pname"><b>Roti Canai</b></p>
+      <p class="price" name="price1">RM5.40</p>
+      <p>Mamak style for you to enjoy!</p>
+      <p><button name="c1" type="submit">Add to Cart</button></p>
+    </form>
+  </div>
+
+    <div class="card" name="product">
+    <form action="incart.php" method="POST"> <!-- Use a form to submit product information -->
+      <input type="hidden" name="product_name" value="Keow Teow Goreng">
+      <input type="hidden" name="product_price" value="RM6.00">
+      <input type="hidden" name="product_description" value="Meow Meow Keow Teow!">
+      <img src="image/teow.png" alt="Keow Teow Goreng" style="width:100%">
+      <p name="pname"><b>Keow Teow Goreng"</b></p>
+      <p class="price" name="price1">RM6.00</p>
+      <p>Meow Meow Keow Teow!</p>
+      <p><button name="c1" type="submit">Add to Cart</button></p>
+    </form>
+  </div>
+
+    <div class="card" name="product">
+    <form action="incart.php" method="POST"> <!-- Use a form to submit product information -->
+      <input type="hidden" name="product_name" value="Nasi Briyani">
+      <input type="hidden" name="product_price" value="RM19.00">
+      <input type="hidden" name="product_description" value="Arab style for you, enjoy!">
+      <img src="image/briyani.png" alt="Burger King" style="width:100%">
+      <p name="pname"><b>Nasi Briyani</b></p>
+      <p class="price" name="price1">RM19.00</p>
+      <p>Arab style for you, enjoy!</p>
+      <p><button name="c1" type="submit">Add to Cart</button></p>
+    </form>
+  </div>
+
+    <div class="card" name="product">
+    <form action="incart.php" method="POST"> <!-- Use a form to submit product information -->
+      <input type="hidden" name="product_name" value="Nasi Goreng Biasa">
+      <input type="hidden" name="product_price" value="RM6.00">
+      <input type="hidden" name="product_description" value="Simpler and cheaper!">
+      <img src="image/nasigoreng.png" alt="Nasi Goreng Biasa" style="width:100%">
+      <p name="pname"><b>Nasi Goreng Biasa</b></p>
+      <p class="price" name="price1">RM6.00</p>
+      <p>Simpler and cheaper!</p>
+      <p><button name="c1" type="submit">Add to Cart</button></p>
+    </form>
+  </div>
+
+        <div class="card" name="product">
+    <form action="incart.php" method="POST"> <!-- Use a form to submit product information -->
+      <input type="hidden" name="product_name" value="Nasi Goreng Cina">
+      <input type="hidden" name="product_price" value="RM7.00">
+      <input type="hidden" name="product_description" value="Ala-Ala Chinese laa!">
+      <img src="image/nasicina.png" alt="Nasi Goreng Cina" style="width:100%">
+      <p name="pname"><b>Nasi Groeng Cina</b></p>
+      <p class="price" name="price1">RM7.00</p>
+      <p>Ala-Ala Chinese laa!</p>
+      <p><button name="c1" type="submit">Add to Cart</button></p>
+    </form>
+  </div>
+
+        <div class="card" name="product">
+    <form action="incart.php" method="POST"> <!-- Use a form to submit product information -->
+      <input type="hidden" name="product_name" value="Tomyam">
+      <input type="hidden" name="product_price" value="RM12.00">
+      <input type="hidden" name="product_description" value="Feel the TomYam Gong!">
+      <img src="image/tomyam.png" alt="Tomyam" style="width:100%">
+      <p name="pname"><b>Tomyam</b></p>
+      <p class="price" name="price1">RM12.00</p>
+      <p>Feel the TomYam Gong!</p>
+      <p><button name="c1" type="submit">Add to Cart</button></p>
+    </form>
+  </div>
+
+    <div class="card" name="product">
+    <form action="incart.php" method="POST"> <!-- Use a form to submit product information -->
+      <input type="hidden" name="product_name" value="Lamb Chop">
+      <input type="hidden" name="product_price" value="RM24.20">
+      <input type="hidden" name="product_description" value="Western Food arrive now!">
+      <img src="image/lambchop.png" alt="Lamb Chop" style="width:100%">
+      <p name="pname"><b>Lamb Chop</b></p>
+      <p class="price" name="price1">RM24.20</p>
+      <p>Western Food arrive now!</p>
+      <p><button name="c1" type="submit">Add to Cart</button></p>
+    </form>
+  </div>
+
+      <div class="card" name="product">
+    <form action="incart.php" method="POST"> <!-- Use a form to submit product information -->
+      <input type="hidden" name="product_name" value="Boba Milk Tea">
+      <input type="hidden" name="product_price" value="RM10.20">
+      <input type="hidden" name="product_description" value="Boba here, Boba There!">
+      <img src="image/boba.png" alt="Boba Milk Tea" style="width:100%">
+      <p name="pname"><b>Boba Milk Tea</b></p>
+      <p class="price" name="price1">RM10.20</p>
+      <p>Boba here, Boba There!</p>
+      <p><button name="c1" type="submit">Add to Cart</button></p>
+    </form>
+  </div>
+
+          <div class="card" name="product">
+    <form action="incart.php" method="POST"> <!-- Use a form to submit product information -->
+      <input type="hidden" name="product_name" value="Coffe Latte">
+      <input type="hidden" name="product_price" value="RM13.30">
+      <input type="hidden" name="product_description" value="Great drink to start your day!">
+      <img src="image/kopi.png" alt="Coffe Latte" style="width:100%">
+      <p name="pname"><b>Nasi Kandar</b></p>
+      <p class="price" name="price1">RM13.30</p>
+      <p>Great drink to start your day!</p>
+      <p><button name="c1" type="submit">Add to Cart</button></p>
+    </form>
+  </div>
+
+        <div class="card" name="product">
+    <form action="incart.php" method="POST"> <!-- Use a form to submit product information -->
+      <input type="hidden" name="product_name" value="Mango Shake">
+      <input type="hidden" name="product_price" value="RM10.50">
+      <input type="hidden" name="product_description" value="Mango Shaky Shake!">
+      <img src="image/mango.png" alt="Mango Shake" style="width:100%">
+      <p name="pname"><b>Mango Shake</b></p>
+      <p class="price" name="price1">RM10.50</p>
+      <p>Mango Shaky Shake!</p>
+      <p><button name="c1" type="submit">Add to Cart</button></p>
+    </form>
+  </div>
+
+    <div class="card" name="product">
+    <form action="incart.php" method="POST"> <!-- Use a form to submit product information -->
+      <input type="hidden" name="product_name" value="Burger King">
+      <input type="hidden" name="product_price" value="RM19.99">
+      <input type="hidden" name="product_description" value="Delicious burger from Burger King itself !!">
+      <img src="image/burger.png" alt="Burger King" style="width:100%">
+      <p name="pname"><b>Burger King</b></p>
+      <p class="price" name="price1">RM19.99</p>
+      <p>Delicious burger for you !!</p>
+      <p><button name="c1" type="submit">Add to Cart</button></p>
+    </form>
+  </div>
+
+      <div class="card" name="product">
+    <form action="incart.php" method="POST"> <!-- Use a form to submit product information -->
+      <input type="hidden" name="product_name" value="Burger King">
+      <input type="hidden" name="product_price" value="RM19.99">
+      <input type="hidden" name="product_description" value="Delicious burger from Burger King itself !!">
+      <img src="image/burger.png" alt="Burger King" style="width:100%">
+      <p name="pname"><b>Burger King</b></p>
+      <p class="price" name="price1">RM19.99</p>
+      <p>Delicious burger for you !!</p>
+      <p><button name="c1" type="submit">Add to Cart</button></p>
+    </form>
+  </div>
+
+  <p><a href="viewcart2.php"><button>View your cart here</button></a></p>
+</div>
+<!--------------------------------------------------------- ORDER PAGE END HERE ----------------------------------------------------------->
+
+
+<!------------------------------------------------------- PARTNERSHIP START HERE ---------------------------------------------------------->
+<div id="Partnership" class="tabcontent">
+  <h1>Our Partnership</h1>
+  <p style="text-align: left;"><img src="image/Shopeelogo.png" width="500" height="300"></p>
+  <p style="text-align: left;">MANILA, 20 June, 2018. Grab, one of the most frequently used online-to-offline (O2O) mobile platforms in Southeast Asia, teams up with Shopee. With this team-up, consumers will never have to worry about problems such as ruining heels outside a formal event or forgetting to buy a gift for a birthday party.</p>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <p style="text-align: right;"><img src="image/Sephoralogo.png" width="200" height="200"></p>
+  <p style="text-align: right;">BANGKOK 18 July 2018. Grab, today announces its strategic partnership with Thailand top leading brands across various industries such as F&B, retail, entertainment, electronics and travel brands to offer the best deals ever to users. Grab users can now enjoy more benefits from Grab flagship partners.</p>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <p style="text-align: left;"><img src="image/snplogo.png" width="200" height="200"></p>
+  <p style="text-align: left;">13 April 2021. S&P, Shopee, Nok Air, Major Cineplex, and Sephora, and so much more from its gold partners. As part of the announcement, GrabRewards feature is also equipped with the new user interface, which has given it a new facelift as a ‘reward marketplace’ to deliver an even better customer experience with more categorized and targeted offers.</p>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <p style="text-align: right;"><img src="image/noklogo.png" width="300" height="200"></p>
+  <p style="text-align: right;">Under the new GrabRewards strategic partnership, partners can add Grab platform as additional touchpoints with potential consumers and leverage their business more through Grab’s largest rewards user base, joint campaigns, in-app push content, PR activities and media network such as eDM, blogs, social media and out of home.</p>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <p style="text-align: left;"><img src="image/majgrab.png"></p>
+  <p style="text-align: left;">At present, Grab is the only ride-hailing application in Thailand which offers a loyalty program. All Grab users are automatically onboarded as GrabRewards members when they first register to Grab platform, which allow them to earn more when choose to ride with Grab. GrabRewards membership is categorized into loyalty tiers: Platinum, Gold and Silver.</p>
+</div>
+<!--------------------------------------------------- PARTNERSHIP END HERE --------------------------------------------------------------->
+
+
+<!-------------------------------------------------- LOGIN FORM START HERE ------------------------------------------------------------>
+<div id="Login" class="tabcontent">
+  <h1>Log in</h1>
+  <p style="text-align: center;"><b>BECOME OUR MEMBER NOW !!</b></p>
+  <p style="text-align: center;"><img src="image/join.png" width="1440" height="500"></p>
+
+<p style="text-align: center;"><button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button></p>
+
+<div id="id01" class="modal">
+  
+  <form class="modal-content animate" action="grablogin.php" method="post">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="image/logava.png" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container">
+      <label for="uname"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="username" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="password" required>
+        
+      <button name="send" type="submit">Login</button>
+    </div>
+
+    <div class="container" style="background-color: skyblue;">
+      <p style="text-align: right;"><span>Don't have account? <a href="register.html">Register</a> here</span></p>
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+    </div>
+  </form>
+</div>
+
+<!------------------------------------------------------ LOGIN ADMIN FORM END HERE ----------------------------------------------------->
+<form action="login_admin.html" method="POST">
+  <p style="text-align: center;"><button type="submit" value="submit" name="Submit">Manage Website</button></p>
+</form>
+<!------------------------------------------------------ LOGIN ADMIN FORM END HERE ----------------------------------------------------->
+
+<p style="text-align: center;"><b>Log in here. You will soon be one of us !!</b></p>
+</div>
+<!------------------------------------------------------ LOGIN FORM END HERE ----------------------------------------------------->
+
+
+
+
+<!------------------------------------------------------- FOOTER START HERE ------------------------------------------------------------>
+<div class="footer">
+  <p style="text-align: left;"><img src="image/grablologo.png" width="80" height="80"></p>
+  <p style="text-align: left;"><b>Forward Together</b></p>
+  <br>
+    <button class="tablink" onclick="openPage('Home', this, 'green')" id="defaultOpen">Home</button>
+    <button class="tablink" onclick="openPage('About', this, 'green')">About Us</button>
+    <button class="tablink" onclick="openPage('Order', this, 'green')">Order</button>
+    <button class="tablink" onclick="openPage('Partnership', this, 'green')">Partnership</button>
+    <button class="tablink" onclick="openPage('Login', this, 'skyblue')">Log in</button>
+    <br><br><br><br><br>
+    
+    <p style="text-align: right;">
+      <a href="https://www.facebook.com/GrabMY/" target="_blank"><img src="image/facebook.png.png" height="20">
+      <a href="https://www.instagram.com/grabmy/reels/" target="_blank"><img src="image/instagram.png.png" height="20">
+      <a href="https://www.youtube.com/channel/UC0QKbvP4XKGCw5s4iSXGywQ" target="_blank"><img src="image/utubegrab.png" height="20"></a></p>
+      <p style="text-align: left;">COPYRIGHT @ 2023</p>
+    <img src="image/foter.png" width="1500" height="80">
+
+</div>
+<!----------------------------------------------------- FOOTER END HERE ------------------------------------------------------------>
+
+
+<!--------------------------------------------------- JAVASCRIPT START HERE -------------------------------------------------------->
+<script>
+
+// LOGIN JAVASCRIPT
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+// TAB BUTTON JAVASCRIPT
+function openPage(pageName,elmnt,color) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "";
+  }
+  document.getElementById(pageName).style.display = "block";
+  elmnt.style.backgroundColor = color;
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+<!------------------------------------------------------- JAVASCRIPT END HERE ------------------------------------------------->
+
+   
+</body>
+</html> 
+
